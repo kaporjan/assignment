@@ -10,7 +10,7 @@ create table account (
     name varchar(128),
     balance decimal,
 
-    CONSTRAINT FK_CUSTOMER_ID foreign key(customer_id) references customer(id)
+    CONSTRAINT FK_CUSTOMER_ID foreign key(customer_id) references customer(id) ON DELETE CASCADE
 );
 
 create table transaction (
@@ -19,6 +19,6 @@ create table transaction (
     account_id bigint not null,
     change decimal,
 
-    CONSTRAINT FK_CUSTOMER2_ID foreign key(customer_id) references customer(id),
-    CONSTRAINT FK_ACCOUNT_ID foreign key(account_id) references account(id)
+    CONSTRAINT FK_CUSTOMER2_ID foreign key(customer_id) references customer(id) ON DELETE CASCADE,
+    CONSTRAINT FK_ACCOUNT_ID foreign key(account_id) references account(id) ON DELETE CASCADE
 );
